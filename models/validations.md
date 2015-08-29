@@ -216,7 +216,21 @@ var User = Waterline.Collection.extend({
 
 If you want to build custom functionality on top of Waterline models and you need to define custom model attribute properties, the Waterline validations will probably throw an error. If you know what you're doing, you can tell Waterline to ignore certain properties and not run validations for them (so this is different from custom validations).
 
+To do this, add an `ignoreProperties` array of custom attribute properties to the `validations` object in your `config` object.
+
 Example model:
+
+```javascript
+var config = {
+  defaults: {
+    validations: {
+      ignoreProperties: ['special', 'async'] 
+  }
+}
+```
+
+You can then set `special` and `async` as custom Attribute Properties
+
 ```javascript
 attributes: {
   email: {
